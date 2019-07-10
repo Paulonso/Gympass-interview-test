@@ -1,0 +1,55 @@
+
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+void printSet(set<int> melhor_volta_piloto) 
+{ 
+  
+    cout << "Set: "; 
+    for (auto i : melhor_volta_piloto) 
+        cout << i << " "; 
+  
+    cout << '\n'; 
+} 
+  
+int findMax(set<int> melhor_volta_piloto) 
+{ 
+   
+    int max_element; 
+    if (!melhor_volta_piloto.empty()) 
+        max_element = *(melhor_volta_piloto.rbegin()); 
+  
+    return max_element; 
+} 
+ 
+int findMin(set<int> melhor_volta_piloto) 
+{ 
+  
+    int min_element; 
+    if (!melhor_volta_piloto.empty()) 
+        min_element = *melhor_volta_piloto.begin(); 
+  
+    return min_element; 
+} 
+  
+int main() 
+{ 
+  
+    set<int> melhor_volta_piloto; 
+  
+    my_set.insert(0); 
+    my_set.insert(1); 
+    my_set.insert(2); 
+    my_set.insert(3); 
+    my_set.insert(4); 
+  
+    printSet(melhor_volta_piloto); 
+  
+    cout << "Minimum element: "
+         << findMin(melhor_volta_piloto) 
+         << endl; 
+  
+    cout << "Maximum element: "
+         << findMax(melhor_volta_piloto) 
+         << endl; 
+} 
