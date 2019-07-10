@@ -1,32 +1,79 @@
 # Prerequisites
 *.d
+.gitignore
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+bin/*
+logs/*
+experiments/*
+CMakeLists.txt.user
+CMakeLists.txt.user*
 
-# Precompiled Headers
-*.gch
-*.pch
+log++.cc
+@@ -23:49:08.277 +23:54:57.757 @@ void LogPosicaoChegada::handle(const PosicaoChegada* data) {
+std::string filename = data->logMessage()->logger()->typedConfigurations()->filename(data->logMessage()->level());
+    auto lock = m_fileLocks.find(CodigoPiloto);
+    if (lock == m_fileLocks.end()) {
+        m_fileLocks.emplace(std::make_pair(filename, new base::threading::Mutex));
+        m_fileLocks.emplace(std::make_pair(filename, base::FileLock()));
+    }
+#endif
+} 
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+log++.cc
+@@ -23:49:08.277 +23:54:57.757 @@ void LogPosicaoChegada::handle(const PosicaoChegada* data) {
+std::string filename = data->logMessage()->logger()->typedConfigurations()->filename(data->logMessage()->level());
+    auto lock = m_fileLocks.find(NomePiloto);
+    if (lock == m_fileLocks.end()) {
+        m_fileLocks.emplace(std::make_pair(filename, new base::threading::Mutex));
+        m_fileLocks.emplace(std::make_pair(filename, base::FileLock()));
+    }
+#endif
+}
 
-# Fortran module files
-*.mod
-*.smod
+log++.h
+@@ -1:02.852 +1:18.097 @@ class RegisteredQtdeVoltasCompletas : public base::utils::RegistryWithPred<base::QtdeVoltas
+enum class DispatchAction : base::type::EnumType {
+  None = 1, NormalLog = 2, SysLog = 4
+};
+struct FileLock {
+    base::threading::Mutex mutex;
+};
+}  // namespace base
+template <typename T>
+class Callback : protected base::threading::ThreadSafe {
+@@ -1:02.852 +1:18.097 @@ class LogDispatchCallback : public Callback<LogDispatchData> {
+  base::threading::Mutex& fileHandle(const LogDispatchData* data);
+ private:
+  friend class base::LogDispatcher;
+  std::unordered_map<std::string, std::unique_ptr<base::threading::Mutex>> m_fileLocks;
+  std::unordered_map<std::string, base::FileLock> m_fileLocks;
+  base::threading::Mutex m_fileLocksMapLock;
+};
+class PerformanceTrackingCallback : public Callback<PerformanceTrackingData> {
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+log++.h
+@@ -23:49:08.277 +23:54:57.757 @@ class RegisteredTempoTotaldeProva : public base::utils::RegistryWithPred<base::TempoTotaldeProva
+enum class DispatchAction : base::type::EnumType {
+  None = 1, NormalLog = 2, SysLog = 4
+};
+struct FileLock {
+    base::threading::Mutex mutex;
+};
+}  // namespace base
+template <typename T>
+class Callback : protected base::threading::ThreadSafe {
+@@ -1:02.852 +1:18.097 @@ class LogDispatchCallback : public Callback<LogDispatchData> {
+  base::threading::Mutex& fileHandle(const LogDispatchData* data);
+ private:
+  friend class base::LogDispatcher;
+  std::unordered_map<std::string, std::unique_ptr<base::threading::Mutex>> m_fileLocks;
+  std::unordered_map<std::string, base::FileLock> m_fileLocks;
+  base::threading::Mutex m_fileLocksMapLock;
+};
+class PerformanceTrackingCallback : public Callback<PerformanceTrackingData> {
+};
 
-# Executables
-*.exe
-*.out
-*.app
+
+
+
+
