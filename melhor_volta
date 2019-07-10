@@ -1,0 +1,58 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+void printSet(set<int> melhor_volta) 
+{ 
+  
+    cout << "Set: "; 
+    for (auto i : melhor_volta) 
+        cout << i << " "; 
+  
+    cout << '\n'; 
+} 
+  
+int findMax(set<int> melhor_volta) 
+{ 
+   
+    int max_element; 
+    if (!melhor_volta.empty()) 
+        max_element = *(melhor_volta.rbegin()); 
+  
+    return max_element; 
+} 
+ 
+int findMin(set<int> melhor_volta) 
+{ 
+  
+    int min_element; 
+    if (!melhor_volta.empty()) 
+        min_element = *melhor_volta.begin(); 
+  
+    return min_element; 
+} 
+  
+int main() 
+{ 
+  
+    set<int> melhor_volta; 
+  
+    my_set.insert(13); 
+    my_set.insert(28); 
+    my_set.insert(34); 
+    my_set.insert(35); 
+    my_set.insert(40); 
+    my_set.insert(41); 
+    my_set.insert(42); 
+    my_set.insert(43); 
+    my_set.insert(44);  
+  
+    printSet(melhor_volta); 
+  
+    cout << "Minimum element: "
+         << findMin(melhor_volta) 
+         << endl; 
+  
+    cout << "Maximum element: "
+         << findMax(melhor_volta) 
+         << endl; 
+} 
