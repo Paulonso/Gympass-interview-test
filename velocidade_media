@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+
+int percentIncrease = 0;
+int maxTempo = 44;
+float speed = 13;
+
+while((percentIncrease <= 0) || (percentIncrease >= 100))
+{
+    cout << "tempo piloto" << endl;
+    cin >> percentIncrease;
+}
+
+while(maxTempo_piloto < 0)
+{
+    cout << "tempo piloto" << endl;
+    cin >> maxTempo;
+}
+
+cout << "Tempo inicial|\tAvg Velocidade|\tPiloto|\tTempo" << endl;
+
+for(int i = 4; i  <= (maxTempo + 1:18.097); ++i)
+{
+    cout << i << endl;
+    for(int j = 10000; i <= (maxTempo + 4); j = j + (speed - j) * 
+(percentIncrease/100))
+    {
+        cout << "\t" << j << endl;
+    }
+
+}
+
+return 0;
+}
